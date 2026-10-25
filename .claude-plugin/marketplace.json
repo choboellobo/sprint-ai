@@ -1,0 +1,14 @@
+{
+  "name": "sprint-ai",
+  "description": "sprint-ai: agile workflow skills for Claude Code.",
+  "owner": {
+    "name": "Eduardo Muñoz"
+  },
+  "plugins": [
+    {
+      "name": "sprint-ai",
+      "source": "./",
+      "description": "Backlog, milestones, sprints, stories, pairing, QA, and a local board for building software with AI."
+    }
+  ]
+}

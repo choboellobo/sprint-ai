@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tablero · sprint-ai</title>
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="/style.css">
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand"><span class="brand-mark">s</span><span>sprint-ai <strong>board</strong></span></div>
+      <span class="topbar-note">Vista local · solo lectura</span>
+    </header>
+
+    <div class="page">
+      <nav class="view-tabs" aria-label="Vistas del proyecto">
+        <button type="button" class="active" data-view="current" aria-current="page">Sprint actual</button>
+        <button type="button" data-view="history">Sprints pasados <span id="history-count">0</span></button>
+        <button type="button" data-view="milestones">Milestones <span id="milestone-count">0</span></button>
+      </nav>
+
+      <div id="sprint-view">
+      <div id="history-picker" class="history-picker" hidden>
+        <label for="history-select">Sprint archivado</label>
+        <select id="history-select"></select>
+      </div>
+      <section class="intro">
+        <div>
+          <p class="eyebrow" id="project-name">PROYECTO</p>
+          <h1 id="sprint-name">Cargando tablero…</h1>
+          <p class="goal" id="sprint-goal"></p>
+          <p class="dates" id="sprint-dates"></p>
+        </div>
+        <div class="progress-card">
+          <div class="progress-top"><span>Progreso del sprint</span><strong id="progress-value">—</strong></div>
+          <div class="progress-track"><div id="progress-fill"></div></div>
+          <p id="progress-caption">Leyendo archivos Markdown…</p>
+        </div>
+      </section>
+
+      <section class="summary" aria-label="Resumen del sprint">
+        <div class="summary-item"><span>Pendientes</span><strong id="count-todo">0</strong></div>
+        <div class="summary-item"><span>En curso</span><strong id="count-progress">0</strong></div>
+        <div class="summary-item"><span>En QA</span><strong id="count-qa">0</strong></div>
+        <div class="summary-item warning"><span>En espera</span><strong id="count-waiting">0</strong></div>
+        <div class="summary-item done"><span>Terminadas</span><strong id="count-done">0</strong></div>
+      </section>
+
+      <div class="toolbar">
+        <div>
+          <h2>Historias</h2>
+          <p id="board-subtitle">Los cambios aparecen automáticamente.</p>
+        </div>
+        <div class="filters">
+          <label class="sr-only" for="search">Buscar historias</label>
+          <input id="search" type="search" placeholder="Buscar historia o ID">
+          <label class="sr-only" for="area">Filtrar por área</label>
+          <select id="area"><option value="">Todas las áreas</option></select>
+        </div>
+      </div>
+
+      <main id="board" class="board" aria-label="Tablero de historias"></main>
+      </div>
+
+      <main id="milestones-view" hidden>
+        <div class="milestones-heading">
+          <div>
+            <p class="eyebrow">HOJA DE RUTA</p>
+            <h1>Milestones</h1>
+            <p>Objetivos del producto y sprints que contribuyen a cada uno.</p>
+          </div>
+        </div>
+        <div id="milestone-grid" class="milestone-grid"></div>
+      </main>
+
+      <p class="footer" id="last-read" role="status"></p>
+    </div>
+
+    <dialog id="detail-dialog">
+      <div class="dialog-head">
+        <span class="eyebrow" id="detail-id"></span>
+        <button id="close-detail" type="button" aria-label="Cerrar detalles">×</button>
+      </div>
+      <h2 id="detail-story"></h2>
+      <p id="detail-meta"></p>
+      <div id="detail-next" class="detail-next"></div>
+      <section><h3>Criterios de aceptación</h3><ul id="detail-criteria"></ul></section>
+      <section><h3>Verificación</h3><ul id="detail-verification"></ul></section>
+      <p id="detail-plan" class="plan-path"></p>
+    </dialog>
+  </body>
+</html>

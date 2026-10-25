@@ -1,0 +1,11 @@
+{
+  "name": "sprint-ai",
+  "version": "0.1.0",
+  "description": "Plan sprints, refine vertical user stories, build them in verified steps, and track them on a local board. You decide scope; the AI never commits.",
+  "author": {
+    "name": "Eduardo Muñoz"
+  },
+  "repository": "https://github.com/choboellobo/sprint-ai",
+  "license": "MIT",
+  "keywords": ["sprint", "backlog", "user-stories", "tdd", "qa", "board"]
+}
